@@ -1,72 +1,51 @@
-# Configuration file for the Starship prompt
-# See: https://starship.rs/config/
-
-# Don't print a new line at the start of the prompt
-add_newline = false
-
-# Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
-
+format = """\
+[](bg:#030B16 fg:#7DF9AA)\
+[󰀵 ](bg:#7DF9AA fg:#090c0c)\
+[](fg:#7DF9AA bg:#1C3A5E)\
+$time\
+[](fg:#1C3A5E bg:#3B76F0)\
+$directory\
+[](fg:#3B76F0 bg:#FCF392)\
+$git_branch\
+$git_status\
+$git_metrics\
+[](fg:#FCF392 bg:#030B16)\
+$character\
+"""
 
 [directory]
-truncation_length = 3
-truncation_symbol = "…"
-
-[aws]
-disabled = true
-
-# Configure battery symbols
-[battery]
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
-
-#shows when battery below threshold
-# "bold red" style when capacity is between 0% and 10%
-[[battery.display]]
-threshold = 10
-style = "bold red"
-# "bold yellow" style when capacity is between 10% and 30%
-[[battery.display]]
-threshold = 30
-style = "bold yellow"
-
-#to display the hostname before the character line
-[hostname]
-ssh_only = false
-style = "italic blue"
-format = "[$hostname]($style) in "
-disabled = false
-
-
-
+format = "[ ﱮ $path ]($style)"
+style = "fg:#E4E4E4 bg:#3B76F0"
 
 [git_branch]
-symbol = "🌿 "
-
-[git_commit]
-disabled = false
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+symbol = "  "
+style = "fg:#1C3A5E bg:#FCF392"
 
 [git_status]
-conflicted = "⚔️ "
-ahead = "🏎️💨 ×${count}"
-behind = "🐢 ×${count}"
-diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
-untracked = "🛤️  ×${count}"
-modified = "📝 ×${count}"
-staged = "🗃️  ×${count}"
-renamed = "📛 ×${count}"
-deleted = "🗑️  ×${count}"
+format = '[$all_status]($style)'
+style = "fg:#1C3A5E bg:#FCF392"
 
-[python]
-pyenv_version_name = false
-
-[conda]
-symbol = "🅒🐍 "
-
-
-
-#The status module displays the exit code of the previous command. 
-#The module will be shown only if the exit code is not 0
-[status]
+[git_metrics]
+format = "([+$added]($added_style))[]($added_style)"
+added_style = "fg:#1C3A5E bg:#FCF392"
+deleted_style = "fg:bright-red bg:235"
 disabled = false
+
+[hg_branch]
+format = "[ $symbol$branch ]($style)"
+symbol = " "
+
+[cmd_duration]
+format = "[  $duration ]($style)"
+style = "fg:bright-white bg:18"
+
+[character]
+success_symbol = '[ ➜](bold green) '
+error_symbol = '[ ✗](#E84D44) '
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ 󱑍 $time ](bg:#1C3A5E fg:#8DFBD2)]($style)'

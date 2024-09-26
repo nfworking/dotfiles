@@ -1,1 +1,1 @@
-komorebic start --whkd
+komorebic start --whkd --ffm

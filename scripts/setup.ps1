@@ -1,9 +1,9 @@
 do {
     Clear-Host
     Write-Host "Please enter a number:"
-    Write-Host "1. Option 1"
-    Write-Host "2. Option 2"
-    Write-Host "3. Option 3"
+    Write-Host "1. Install dotfiles and setup git projects"
+    Write-Host "2. Install Scoop"
+    Write-Host "3. Install Required Scoop Apps"
     Write-Host "4. Exit"
     
     # Capture user input
@@ -11,16 +11,16 @@ do {
 
     switch ($choice) {
         "1" {
-            Write-Host "You selected option 1."
-            # Perform action for option 1 here
+       
+            ~/.config/remotescripts/first.ps1
         }
         "2" {
-            Write-Host "You selected option 2."
-            # Perform action for option 2 here
+	~/.config/remotescripts/second.ps1            
+
+	                
         }
         "3" {
-            Write-Host "You selected option 3."
-            # Perform action for option 3 here
+            ~/.config/remotescripts/third.ps1
         }
         "4" {
             Write-Host "Exiting..."
